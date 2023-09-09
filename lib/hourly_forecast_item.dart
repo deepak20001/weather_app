@@ -4,11 +4,13 @@ class HourlyForecastItem extends StatelessWidget {
   final String time;
   final String temperature;
   final IconData icon;
+  final bool sunny;
   const HourlyForecastItem({
     super.key,
     required this.time,
     required this.temperature,
     required this.icon,
+    required this.sunny,
   });
 
   @override
@@ -29,11 +31,14 @@ class HourlyForecastItem extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 8),
             Icon(
               icon,
               size: 32,
+              color: sunny == true ? Colors.yellow : Colors.blue,
             ),
             const SizedBox(height: 8),
             Text(temperature),
